@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html>
+<script src="jscolor.js"></script>
+<style>
+body{
+  background-color: #90E6F7;
+}
+h1 {
+  color :Black;
+}
+
+/* .steps{
+background: black;
+color: white;
+height: 35px;
+width: 96px;
+} */
+
+.bTable{
+  border-collapse: collapse;
+  border: 2px solid blue;
+  width: 500px;
+  height: 500px;
+}
+
+td.bTCol{
+  background: white;
+  border: 4px solid #d3d3d3;
+  width: 30px;
+  height: 30px;
+}
+
+.sTable{
+  border-collapse: collapse;
+  border: 3px solid black;
+  height: 80px;
+  width: 80px;
+}
+table{
+  border-collapse: collapse;
+}
+td.sRow{
+  background: white;
+  border: 5px solid black;
+  width: 40px;
+  height: 40px;
+}
+
+td.colorme {
+  border: 6px solid #7B68ee;
+  background: white;
+  width: 30px;
+  height: 30px;
+}
+td.colorme2 {
+  border: 6px solid #7B68ee;
+  background: white;
+  width: 30px;
+  height: 30px;
+}
+</style>
+<head>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  function randomColors() {
+    // document.write("<div style='color:#" + Math.floor(Math.random()*4096).toString(16) + ";font-size: " + Math.floor(Math.random()*24+12) + "px;'>");//with font size
+    document.write("<div style='color:#" + Math.floor(Math.random()*4096).toString(16) + ";" + "'>");//with font size
+  }
+  </script>
+  <!-- <script>
+   document.onclick = function(){
+    // your code
+    window.alert("clicked");
+  }​
+  </script> -->
+
+
+  <h1 align="right"style="background-color:white">Tom Sciano</h1>
+  <div align="right" style="background-color:black" >
+    <h1 style="color:white">Step Number: 4</h1>
+  </div>
+</head>
+<body onload="rZombo()">
+  <audio id="rZomboaudio">
+    <source src="zombocomshort.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <table id="sTable" >
+      <tr id="row">
+      </tr>
+    </table>
+
+    <script>randomColors()</script>
+  </br>
+</br>
+<table id="bTable">
+</table>
+
+<!-- Static table -->
+<!-- <div class="divTable s1table">
+<div class="divTableBody">
+<div class="divTableRow">
+<div class="divTableCellF">cSmall_1</div>
+<div class="divTableCell">cell2_1</div>
+<div class="divTableCell">cell3_1</div>
+<div class="divTableCell">cell4_1</div>
+<div class="divTableCell">cell5_1</div>
+<div class="divTableCell">cell6_1</div>
+<div class="divTableCell">cell7_1</div>
+<div class="divTableCell">cell8_1</div>
+<div class="divTableCell">cell9_1</div>
+<div class="divTableCell">cSmall0_1</div>
+</div>
+</div>
+</div> -->
+
+</br>
+</br>
+
+<audio id="myAudio" controls>
+  <source src="zombo.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</p>
+<button style="height:100px;width:100px;" onclick="playAudio()" type="button">You Can Do Anything!</button>
+</p>
+<button style="height:100px;width:100px;" onclick="setVolume()" type="button">Set volume to Fun Mode!</button>
+</p>
+<button  style="height:100px;width:100px;" onclick="pauseAudio()" type="button">Make it Stop!</button>
+
+
+
+<p id="testing"></p>
+<!-- <button onclick="mTable()">Main Step 2</button> -->
+
+<!-- <p id="colorSection"></p> -->
+
+</br>
+
+
+
+<!-- <button onclick="mTable()">Try it</button> -->
+
+
+
+<script>
+var plzNo=0;
+// var rownum="0";
+// var colnum="0";
+var zombo = document.getElementById("myAudio");
+var rZomboaudio = document.getElementById("rZomboaudio");
+// function tableCreate20(){
+//     var body = document.body,
+//         tbl  = document.createElement('table');
+//     tbl.style.width  = '100%';
+//     tbl.style.border = '1px solid black';
+//     tbl.style.backgroundColor = 'LightGray';
+//   var tr = tbl.insertRow();
+//     for(var i = 0; i < 20; i++){
+//         var tr = tbl.insertRow();
+//         tr.setAttribute("row", i, 2);
+//         for(var j = 0; j < 20; j++){
+//                 var td = tr.insertCell();
+//                 // <tr onclick="myFunction(this)">
+//                 // <td>Click to show cell index row and column</td>
+//                 // </tr>
+//
+//                 td.appendChild(document.createTextNode('Cell '+i+' '+j));
+//                 td.setAttribute("cell", j, 2);
+//                 td.style.border = '1px solid black';
+//                 td.style.padding = '20px 20px';
+//         }
+//     }
+//     body.appendChild(tbl);
+//
+// }
+// function gTable() {
+var bTable = document.getElementById("bTable");
+var bCol;
+for(var r = 0; r < 20; r++){
+  var bRow = bTable.insertRow(0);
+  bRow.className = "bTRow click";
+  bRow.id = Math.abs(r-19);
+  for(var c =0; c < 20; c++){
+    bCol = bRow.insertCell(0);
+    bCol.className = "bTCol click";
+    bCol.id = Math.abs(c-19);
+    bCol.appendChild(document.createTextNode('('+ Math.abs(r-19) +','+Math.abs(c-19) +')'));
+  }
+}
+//small table
+var sRow = document.getElementById("row");
+var cSmall;
+for(var i = 0; i < 10; i++){
+  cSmall = row.insertCell(i);
+  if(i == 0){
+    cSmall.className = "sRow click";
+  }else{
+    cSmall.className = "sRow";
+  }
+  cSmall.id = i;
+}
+
+//RANDOM BACKGROUND COLOR GENERATOR!!!!
+var rand_bkg_color = (function() {
+
+  // return rand from min included to max included
+  var rand = function(min, max) {
+    return Math.floor(Math.random() * (max-min+1)+min);
+  }
+
+  return function(){
+    return 'rgb('+rand(0,255)+','+rand(0,255)+','+rand(0,255)+')';
+  };
+
+})();
+document.body.style.background =rand_bkg_color();
+// }
+
+//make the table on clicked
+// function mTable(){
+//   if (plzNo===1){
+//     window.alert("Already Made! Stop trying to break my program!");
+//
+//     zombo.play();
+//   }
+//   else{
+//     gTable();
+//     plzNo=1;
+//   }
+// }
+function playAudio() {
+  zombo.play();
+}
+
+var mStop;
+mStop=1;
+
+function pauseAudio() {
+  zombo.pause();
+  mStop=0;
+}
+
+
+function rZombo() {
+  rZomboaudio.play();
+  document.body.addEventListener('click', fn, true);
+}
+
+function fn(click2){
+  var rPlayClick;
+  rPlayClick=Math.random()*100+1;;
+  // document.write(mStop);
+  if (mStop>0){
+    if (rPlayClick>=1){
+      rZomboaudio.play();
+    }
+  }
+  if (rPlayClick>=85){
+    document.body.style.background =rand_bkg_color(); //fun mode
+  }
+
+
+}
+
+var color3;
+//Small Tabel Select
+$(document).ready(function(){//Jquery
+  $(".sRow").click(function(){//only looking for elements in the ".sRow" class
+  $("*").removeClass("colorme");//removes the extra css for all boxs
+  $(this).addClass("colorme");//highlights the box clicked
+});
+});
+
+// Big Table Select
+$(document).ready(function(){//Jquery
+  $(".bTCol").click(function(){//only looking for elements in the ".sRow" class
+  $("*").removeClass("colorme2");//removes the extra css for all boxs
+  $(this).addClass("colorme2");//highlights the box clicked
+});
+});
+
+
+const bCell = document.querySelectorAll('.bTCol');
+
+for(var bt = 0; bt < bCell.length; bt++){
+  bCell[bt].addEventListener('click', thisone, false);
+}
+
+
+function thisone(derp){
+
+  alert("Row: " + derp.target.parentElement.rowIndex + "  Column: " + derp.target.id);
+  if (color3!=null){
+    derp.target.style="border: 7px solid #"+ color3 +";";// changes the colors
+    // alert(color3);
+  }
+  // document.write(color3);
+
+}
+function setVolume() {
+  var rando1;
+  rando1=Math.random()*.90+.05;
+  // while (true){
+  //   if (rando1<.8){
+  //   zombo.volume = Math.random()*.99+.05;
+  //   }
+  // }
+  zombo.volume = rando1;
+}
+
+</script>
+
+
+
+
+<h3>COLOR PICKER!</h3>
+
+<button style="height:100px;width:100px;" class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
+  PICK A COLOR AND CLICK A BOX AFTER!!!!
+</button>
+
+HEX value: <input id="chosen-value" value="000000">
+
+<script>
+function setTextColor(picker) {
+  document.getElementsByTagName('body')[0].style.color = '#' + picker.toString();
+  // window.alert(picker.toString());
+  color3=picker.toString();
+}
+</script>
+<!-- <button onclick="myFunction1()">Enter Color!</button> -->
+
+
+
+</body>
+</html>
